@@ -1,7 +1,6 @@
 import  { useState } from 'react';
 import './Nav.css';
 import MenuIcon from '../../assets/nav/Menu.svg';
-import HomeIcon from '../../assets/nav/Home.svg';
 import StoryIcon from '../../assets/nav/Story.svg';
 import CategoryIcon from '../../assets/nav/Category.svg';
 import UserProfile from '../../assets/nav/UserProfile.svg';
@@ -25,10 +24,6 @@ const Nav = () => {
             </button>
             <div className={`nav-popup ${isMenuOpen ? 'open' : ''}`}>  
                 <div className="nav-items">
-                  <div className="nav-item updated-nav-item">
-                    <img src={HomeIcon} alt="Home" width="24" height="24" />
-                    <a className="nav-link" href='/home'>Home</a>
-                  </div>
                   <div className="nav-item updated-nav-item">
                     <img src={StoryIcon} alt="Story" width="24" height="24" />
                     <a className="nav-link" href='/story'>Story</a>
