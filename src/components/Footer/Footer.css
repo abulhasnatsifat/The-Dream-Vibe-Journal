@@ -23,7 +23,9 @@
 
 @media screen and (max-width: 768px) {
     .footer-content {
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
         gap: 15px;
         padding: 10px 0;
     }
@@ -33,18 +35,13 @@
         padding: 15px;
     }
 
-    .footer-search {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .footer-search input {
-        width: 60%;
+    .footer-logo {
+        margin-top: 0;
     }
 
     .footer-nav {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         gap: 20px;
         width: 100%;
     }

@@ -9,14 +9,6 @@ const Footer = () => {
                 <div className='footer-logo'>
                 <a href='/home'>    <Logo />  </a>
                 </div>
-                <div className='footer-search'>
-                  <input type='text' placeholder='Search...' id='searchInput' />
-                  <button type='button' onClick={() => {
-                    const query = document.getElementById('searchInput').value;
-                    window.location.href = `/search?q=${encodeURIComponent(query)}`;
-                  }}>Search</button>
-
-                </div>
                 <div className='footer-nav'>
                     <a href='/login'>Login</a>
                     <a href='/signup'>Sign Up</a>
