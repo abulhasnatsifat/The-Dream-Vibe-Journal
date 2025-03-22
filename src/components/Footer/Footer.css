@@ -21,6 +21,44 @@
     align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .footer {
+        height: auto;
+        padding: 15px;
+    }
+
+    .footer-search {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-search input {
+        width: 60%;
+    }
+
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .footer-nav a {
+        margin: 0;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white !important;
+        border-radius: 5px;
+        text-align: center;
+    }
+}
+
 .footer-logo {
     margin-top: 25px; /* Move logo down further */
 }
