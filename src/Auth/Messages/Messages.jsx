@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaSearch, FaPaperPlane, FaSmile, FaPaperclip, FaBell, FaBellSlash, FaTrash, FaBan } from 'react-icons/fa';
+import { FaPaperPlane, FaSmile, FaPaperclip, FaBell, FaBellSlash, FaTrash, FaBan } from 'react-icons/fa';
 import EmojiPicker from 'emoji-picker-react';
 import photo1 from '../../assets/Profile/Photos/photo1.jpg';
 import photo2 from '../../assets/Profile/Photos/photo2.jpg';
@@ -419,7 +419,7 @@ useEffect(() => {
 }, [selectedChat]);
   const [newMessage, setNewMessage] = useState('');
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
   const [mutedChats, setMutedChats] = useState(new Set());
   const [isTyping, setIsTyping] = useState(false);
   const [attachments, setAttachments] = useState([]);
@@ -499,15 +499,7 @@ useEffect(() => {
     <div className="messages-container">
       {/* Left Sidebar */}
       <div className="conversations-sidebar">
-        <div className="search-bar">
-          <FaSearch className="search-icon" />
-          <input
-            type="text"
-            placeholder="Search conversations..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+      
         <div className="conversations-list">
           {filteredConversations.map(conv => (
             <div
