@@ -1,13 +1,15 @@
 .main-container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border-radius: 15px;
-    width: 97%; /* Reduced width to match navbar and header */
-    align-items: flex-start;  /* Added to align content to the left */
-}
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: clamp(12px, 2.5vw, 20px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
 
 .post-creator {
     margin-bottom: 20px;
