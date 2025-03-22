@@ -1,0 +1,158 @@
+.post-category-container {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: -1200px;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #007bff;
+    margin-left: -5px;
+}
+
+.post-timestamp {
+    font-size: 12px;
+    color: #666;
+}
+
+.post-content {
+    margin: 10px 0;
+}
+
+.post-media {
+    max-width: 100%;
+    border-radius: 8px;
+}
+.tagged-friends {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.tagged-friend {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.tagged-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+* {
+    color: black; /* Set all text to black */
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.read-more-button {
+    margin-left: 200px;
+}
+
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.comment {
+    background: #f1f1f1;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.comment-input-wrapper {
+    display: flex; /* Use flexbox to align input and button */
+    margin-top: 10px; /* Space above the comment input */
+}
+
+.comment-input {
+    flex: 1; /* Allow the input to take available space */
+    padding: 8px; /* Padding for the input */
+    border: 1px solid #ccc; /* Border for the input */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 5px; /* Space between input and button */
+}
+
+.comment-submit-button {
+    padding: 8px 12px; /* Padding for the button */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.comment-submit-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.filter-section {
+    margin-bottom: 20px; /* Space below the filter section */
+}
+
+.category-buttons {
+    display: flex; /* Use flexbox to align buttons */
+    gap: 10px; /* Space between buttons */
+}
+
+.category-button {
+    padding: 10px 15px; /* Padding for buttons */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.category-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.category-button.active {
+    background-color: #0056b3; /* Active button color */
+    font-weight: bold; /* Bold text for active button */
+}

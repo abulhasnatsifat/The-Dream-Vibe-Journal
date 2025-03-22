@@ -1,0 +1,180 @@
+.centered-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .centered-content {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+  }
+  
+  @keyframes gradientBackground {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+  }
+  
+  @keyframes parallax {
+    0% { transform: translateY(0) }
+    50% { transform: translateY(-10px) }
+    100% { transform: translateY(0) }
+  }
+  
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px #6a11cb }
+    50% { box-shadow: 0 0 20px #2575fc }
+    100% { box-shadow: 0 0 5px #6a11cb }
+  }
+  
+  @keyframes letterSpacing {
+    0% { letter-spacing: normal }
+    50% { letter-spacing: 2px }
+    100% { letter-spacing: normal }
+  }
+  
+  .welcome-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+  }
+  
+  .welcome-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.01%);
+    background-size: 50px 50px;
+    animation: parallax 20s linear infinite;
+    pointer-events: none;
+  }
+  
+  .glass-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    width: 90%;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: glow 3s ease-in-out infinite;
+  }
+  
+  .glass-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: letterSpacing 5s ease-in-out infinite;
+    transition: all 0.3s ease;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .gradient-text:hover {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+  
+  .typing-effect {
+    border-right: 2px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: inherit; }
+  }
+  
+  .glass-button {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .glass-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 10.01%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+  }
+  
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .glass-button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .Info {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .Update {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .glass-container {
+      padding: 2rem;
+    }
+    .gradient-text {
+      font-size: 2.5rem;
+    }
+    .welcome-text {
+      font-size: 1.25rem;
+    }
+    .glass-button {
+      padding: 12px 24px;
+      font-size: 1rem;
+    }
+    .welcome-container::before {
+      animation-duration: 30s;
+    }
+  }

@@ -1,0 +1,82 @@
+.thumbnail {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  float: right;
+  margin-left: 20px;
+  position: relative; /* added to establish a positioning context */
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.thumbnail-image:hover {
+  transform: scale(1.05);
+}
+
+.countdown {
+  color: white;
+  font-weight: bold;
+  background-color: blue;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.notification-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  font-size: 1.5em;
+}
+
+.notification-icon:hover {
+  transform: scale(1.1);
+}
+
+.animated-icon {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  color: #ffcc00; /* Bell color */
+  background-color: transparent; /* Removed background */
+  border-radius: 50%;
+  padding: 0; /* Removed padding */
+  box-shadow: none; /* Removed shadow */
+  animation: shake 0.5s infinite;
+}
+
+.animated-icon.active {
+  color: #ff0000; /* Change color when there is a notification */
+  animation: shake 0.5s infinite;
+}
+
+.animated-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(-2px, 0); }
+  50% { transform: translate(2px, 0); }
+  75% { transform: translate(-2px, 0); }
+  100% { transform: translate(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}

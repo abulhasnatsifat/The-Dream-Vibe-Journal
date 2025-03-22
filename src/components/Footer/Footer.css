@@ -1,0 +1,71 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjusted padding for smaller height */
+    backdrop-filter: none; /* Remove blur effect */
+    background: white; /* Set footer background to white */
+    border-radius: 10px;
+    width: calc(100% - 40px); /* Adjust width to account for padding */
+    position: fixed; /* Ensure it stays at the bottom */
+    left: 0;
+    bottom: 0; /* Align to bottom of viewport */
+    z-index: 1000; /* Ensure it stays above other content */
+    height: 50px; /* Set a specific height for the footer */
+}
+
+.footer-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    margin-top: 25px; /* Move logo down further */
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-nav-bar {
+    display: flex;
+    justify-content: space-around;
+    background: #f8f9fa;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 10px; /* Space between nav bar and search section */
+}
+
+.footer-nav-bar a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+.footer-search {
+    display: flex;
+    align-items: center;
+}
+
+.footer-search input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.footer-search button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+}
+
+.footer-nav a {
+    margin-left: 20px;
+    color: #007bff;
+    text-decoration: none;
+}

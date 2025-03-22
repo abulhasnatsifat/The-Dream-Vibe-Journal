@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2); /* Updated background color for better contrast */
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 0px; /* Reduced height of navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow for separation */
+}
+
+.navbar-tabs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-tab {
+    cursor: pointer;
+    padding: 12px 25px; /* Further increased padding for taller tabs */
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 16px; /* Increased font size for better readability */
+}
+
+.navbar-tab:hover {
+    background: rgba(255, 255, 255, 0.4); /* Enhanced hover background */
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0, 255, 128, 0.3); /* Enhanced shadow effect */
+}
+
+.navbar-tab.active {
+    background: rgb(255, 255, 255); /* Slightly darker active background */
+    font-weight: bold;
+    border: 3px solid rgb(0, 0, 0); /* Thicker border for active tab */
+    border-bottom: 5px solid rgb(0, 0, 0); /* Modern border below */
+    box-shadow: 0 4px 15px rgb(255, 255, 255); /* More pronounced shadow effect */
+    transition: border-bottom 0.3s, box-shadow 0.3s; /* Smooth transition */
+}

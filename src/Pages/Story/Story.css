@@ -1,0 +1,313 @@
+.story-container {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.creator-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    margin-left: 0;
+    justify-content: center;
+}
+
+.creator-photo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+    margin-top: 20px;
+}
+
+.creator-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    font-family: 'Arial', sans-serif;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.story-photo {
+    margin: 10px;
+    max-width: 30%;
+    max-height: 500px; /* Increase maximum height for the image */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(0); /* Center the image */
+}
+
+.prev-photo-icon, .next-photo-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 8px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.prev-photo-icon:hover, .next-photo-icon:hover {
+    transform: scale(1.1);
+    background: rgb(255, 255, 255);
+}
+
+.navigation-buttons {
+    margin-top: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: calc(100% - 100px);
+}
+
+.nav-button {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.loading-bar {
+    width: 20%;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 10px;
+    align-self: center; /* Center the loading bar */
+}
+
+.loading-fill {
+    height: 100%;
+    background-color: #000000; /* Green color for the loading fill */
+    border-radius: 5px;
+    transition: width 0.1s linear;
+    margin: 0 auto; /* Center the loading fill */
+}
+
+.sidebar {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    left: -40px;
+    top: 0;
+    height: 100%;
+    overflow-y: auto; /* Enable scrolling */
+    z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.sidebar {
+    scrollbar-width: none; /* Firefox */
+}
+
+.sidebar h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar .creator-photo {
+    margin-top: -10px; /* Move the image up */
+}
+
+.sidebar .creator-name {
+    margin-top: 20px; /* Move the name down */
+}
+
+.sidebar li:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar li:hover .creator-photo {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform 0.3s, opacity 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar li:hover .creator-name {
+    color: #007BFF;
+    transition: color 0.3s;
+}
+
+.selected {
+    background: rgba(0, 123, 255, 0.3);
+    border-left: 4px solid blue;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5));
+    margin: 15px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.right-bar {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    right: -45px;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.right-bar h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.right-bar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.right-bar li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.right-bar .divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+}
+
+.video-section {
+    height: auto; /* Set height to auto to match the photo section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-section video {
+    max-width: 30%; /* Match the max-width of the photo */
+    max-height: 500px; /* Match the max-height of the photo */
+    border-radius: 15px; /* Match the border radius of the photo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Match the box shadow of the photo */
+}
+
+.categories {
+    text-align: center;
+}
+
+.categories ul {
+    display: inline-block;
+}
+
+.story {
+    position: relative;
+}
+
+.read-more-button {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 20px auto;
+    display: block;
+}
+
+.read-more-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.emoji-reactions {
+    position: absolute;
+    bottom: 10px;
+    left: 630px;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.emoji {
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 20px; /* Adjusted to make emojis smaller */
+    transition: transform 0.2s, color 0.2s;
+    color: #333;
+}
+
+.emoji:hover {
+    transform: scale(1.3);
+    color: #ff6347; /* Change color on hover */
+}
+
+.comment-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-top: 35px;
+}
+
+.comment-input {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.send-button {
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.send-button:hover {
+    background-color: #45a049;
+}

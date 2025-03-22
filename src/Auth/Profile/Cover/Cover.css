@@ -1,0 +1,3316 @@
+.cover-photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Reduced width to match navbar and header */
+}
+
+.cover-photo {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    margin-top: -20px; /* Move the cover photo up */
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -110px; /* Move the profile photo up */
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.add-friend, .follow, .message, .dropdown-toggle {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0011ff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-friend:hover, .follow:hover, .message:hover, .dropdown-toggle:hover {
+    background-color: #4d78c7;
+    transform: scale(1.05);
+}
+
+.add-friend svg, .follow svg, .message svg, .dropdown-toggle svg {
+    margin-right: 5px;
+}
+
+.add-friend.loading, .follow.loading, .message.loading, .dropdown-toggle.loading {
+    background-color: #ccc;
+    color: #000000;
+    cursor: not-allowed;
+}
+
+.add-friend.loading svg, .follow.loading svg, .message.loading svg, .dropdown-toggle.loading svg {
+    animation: spin 1s linear infinite;
+}
+
+.message-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.message-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.close-message {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    color: #666;
+}
+
+.message-input {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.message-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+}
+
+.send-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.send-message:hover:not(:disabled) {
+    background-color: #3e8e41;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.send-message:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.user-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.user-bio {
+    font-size: 1.2em;
+    color: #333; /* Updated color for the bio */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.more-actions {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 100;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown-menu button {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-menu button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.message-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    margin-right: 20px;
+}
+
+.message-input {
+    width: 90%;
+    min-height: 120px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    resize: vertical;
+    font-size: 16px;
+    font-family: inherit;
+    background-color: #f8f9fa;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.message-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.15);
+    background-color: #fff;
+}
+
+.message-input::placeholder {
+    color: #adb5bd;
+}
+
+.send-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.send-message:hover:not(:disabled) {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.send-message:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.send-message:disabled {
+    background-color: #e0e0e0;
+    color: #9e9e9e;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.send-message:hover {
+    background-color: #3e8e41;
+}
+
+.send-message:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
