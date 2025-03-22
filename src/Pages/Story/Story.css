@@ -273,19 +273,10 @@
 .emoji-reactions {
     position: absolute;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 630px;
     display: flex;
     justify-content: center;
     margin-top: 0;
-}
-
-@media (max-width: 768px) {
-    .emoji-reactions {
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
 }
 
 .emoji {
