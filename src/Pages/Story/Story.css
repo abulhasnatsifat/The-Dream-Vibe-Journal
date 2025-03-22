@@ -113,9 +113,10 @@
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     position: fixed;
-    left: -40px;
-    top: 0;
-    height: 100%;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
     overflow-y: auto; /* Enable scrolling */
     z-index: 1000; /* Ensure it is on top of other elements */
 }
@@ -193,10 +194,11 @@
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     position: fixed;
-    right: -45px;
-    top: 0;
-    height: 100%;
-    overflow-y: auto;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+    overflow-y: hidden;
 }
 
 .right-bar h2 {
@@ -271,10 +273,19 @@
 .emoji-reactions {
     position: absolute;
     bottom: 10px;
-    left: 630px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .emoji-reactions {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .emoji {
